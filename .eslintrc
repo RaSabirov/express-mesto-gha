@@ -1,0 +1,18 @@
+{
+  "extends": [
+    "airbnb-base",
+    "eslint:recommended",
+    "prettier"
+  ],
+  ///* Правила для отслеживания линтером.
+  "rules": {
+    "no-underscore-dangle": ["error", { "allow": ["_id"] }],
+    "no-unused-vars": ["error", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
+    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+    "no-console": 0
+  },
+  // Здесь мы подключаем используемые плагины.
+  "plugins": [
+    "prettier"
+]
+}

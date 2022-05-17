@@ -1,0 +1,17 @@
+[
+  {  "_id": 1,
+    "name": "Ravil",
+    "about": "dev",
+    "avatar": "https://i.pinimg.com/originals/b9/59/f1/b959f1670d2631589643575de5a782b7.jpg"
+  },
+  {  "_id": 2,
+    "name": "Ravil2",
+    "about": "dev2",
+    "avatar": "https://i.pinimg.com/originals/b9/59/f1/b959f1670d2631589643575de5a782b7.jpg"
+  },
+  {  "_id": 3,
+    "name": "Ravil3",
+    "about": "dev3",
+    "avatar": "https://i.pinimg.com/originals/b9/59/f1/b959f1670d2631589643575de5a782b7.jpg"
+  }
+]
