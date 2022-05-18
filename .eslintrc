@@ -2,10 +2,14 @@
   "extends": [
     "airbnb-base"
   ],
-  ///* Правила для отслеживания линтером.
   "rules": {
-    "no-underscore-dangle": ["error", { "allow": ["_id"] }],
-    "no-unused-vars": ["error", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
-    "quotes": ["error", "single", { "allowTemplateLiterals": true }]
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allow": [
+          "_id"
+        ]
+      }
+    ]
   }
 }
