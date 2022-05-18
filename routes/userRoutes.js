@@ -2,13 +2,18 @@ const express = require('express');
 const {
   getUsers,
   getUserById,
-  // createUser,
+  createUser,
+  updateProfile,
+  updateAvatar,
 } = require('../controllers/userControllers');
 
 const userRoutes = express.Router();
 
 userRoutes.get('/', getUsers);
 userRoutes.get('/:userId', getUserById);
-// userRoutes.post('/', createUser);
+userRoutes.post('/', createUser);
+userRoutes.patch('/me', updateProfile);
+userRoutes.patch('/me/avatar', updateAvatar);
 
-exports.userRoutes = userRoutes;
+module.exports = { userRoutes };
+// exports.userRoutes = userRoutes;
