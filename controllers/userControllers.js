@@ -37,7 +37,7 @@ const createUser = (req, res) => {
     .catch((err) => {
       if (err.name === 'ValidationError') {
         res.status(400).send({
-          message: `Переданы некорректные данные при создании пользователя`,
+          message: 'Переданы некорректные данные при создании пользователя',
         });
       }
       res.status(500).send({ message: 'Произошла ошибка в работе сервера' });
@@ -60,7 +60,7 @@ const updateProfile = (req, res) => {
     .catch((err) => {
       if (err.name === 'ValidationError') {
         res.status(400).send({
-          message: `Переданы некорректные данные при обновлении профиля`,
+          message: 'Переданы некорректные данные при обновлении профиля',
         });
       }
       res.status(500).send({ message: 'Произошла ошибка в работе сервера' });
@@ -83,7 +83,7 @@ const updateAvatar = (req, res) => {
     .catch((err) => {
       if (err.name === 'ValidationError') {
         res.status(400).send({
-          message: `Переданы некорректные данные при обновлении аватара`,
+          message: 'Переданы некорректные данные при обновлении аватара',
         });
       }
       res.status(500).send({ message: 'Произошла ошибка в работе сервера' });
