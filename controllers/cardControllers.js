@@ -15,13 +15,14 @@ const createCard = (req, res) => {
 
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        return res.status(400).send({
+        res.status(400).send({
           message: 'Переданы некорректные данные при создании карточки',
         });
+      } else {
+        res
+          .status(500)
+          .send({ message: 'Произошла ошибка в работе сервера' });
       }
-      return res
-        .status(500)
-        .send({ message: 'Произошла ошибка в работе сервера' });
     });
 };
 
@@ -43,8 +44,9 @@ const deleteCardById = (req, res) => {
         res.status(400).send({
           message: 'Переданы некорректный ID',
         });
+      } else {
+        res.status(500).send({ message: 'Произошла ошибка в работе сервера' });
       }
-      return res.status(500).send({ message: 'Произошла ошибка в работе сервера' });
     });
 };
 
@@ -70,8 +72,9 @@ const likeCard = (req, res) => {
         res
           .status(400)
           .send({ message: 'Передан несуществующий _id карточки.' });
+      } else {
+        res.status(500).send({ message: 'Произошла ошибка в работе сервера' });
       }
-      return res.status(500).send({ message: 'Произошла ошибка в работе сервера' });
     });
 };
 
@@ -97,8 +100,9 @@ const dislikeCard = (req, res) => {
         res
           .status(400)
           .send({ message: 'Передан несуществующий _id карточки.' });
+      } else {
+        res.status(500).send({ message: 'Произошла ошибка в работе сервера' });
       }
-      return res.status(500).send({ message: 'Произошла ошибка в работе сервера' });
     });
 };
 
