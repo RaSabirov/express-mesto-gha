@@ -25,7 +25,7 @@ const getUserById = (req, res) => {
           message: 'Переданы некорректные данные при поиске пользователя',
         });
       }
-      res.status(500).send({ message: 'Произошла ошибка в работе сервера' });
+      return res.status(500).send({ message: 'Произошла ошибка в работе сервера' });
     });
 };
 
@@ -40,7 +40,7 @@ const createUser = (req, res) => {
           message: 'Переданы некорректные данные при создании пользователя',
         });
       }
-      res.status(500).send({ message: 'Произошла ошибка в работе сервера' });
+      return res.status(500).send({ message: 'Произошла ошибка в работе сервера' });
     });
 };
 
@@ -63,7 +63,7 @@ const updateProfile = (req, res) => {
           message: 'Переданы некорректные данные при обновлении профиля',
         });
       }
-      res.status(500).send({ message: 'Произошла ошибка в работе сервера' });
+      return res.status(500).send({ message: 'Произошла ошибка в работе сервера' });
     });
 };
 
@@ -86,7 +86,7 @@ const updateAvatar = (req, res) => {
           message: 'Переданы некорректные данные при обновлении аватара',
         });
       }
-      res.status(500).send({ message: 'Произошла ошибка в работе сервера' });
+      return res.status(500).send({ message: 'Произошла ошибка в работе сервера' });
     });
 };
 

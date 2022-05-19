@@ -44,7 +44,7 @@ const deleteCardById = (req, res) => {
           message: 'Переданы некорректный ID',
         });
       }
-      res.status(500).send({ message: 'Произошла ошибка в работе сервера' });
+      return res.status(500).send({ message: 'Произошла ошибка в работе сервера' });
     });
 };
 
@@ -71,7 +71,7 @@ const likeCard = (req, res) => {
           .status(400)
           .send({ message: 'Передан несуществующий _id карточки.' });
       }
-      res.status(500).send({ message: 'Произошла ошибка в работе сервера' });
+      return res.status(500).send({ message: 'Произошла ошибка в работе сервера' });
     });
 };
 
@@ -98,7 +98,7 @@ const dislikeCard = (req, res) => {
           .status(400)
           .send({ message: 'Передан несуществующий _id карточки.' });
       }
-      res.status(500).send({ message: 'Произошла ошибка в работе сервера' });
+      return res.status(500).send({ message: 'Произошла ошибка в работе сервера' });
     });
 };
 
