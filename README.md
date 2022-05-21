@@ -11,7 +11,48 @@
 
 Остальные директории вспомогательные, создаются при необходимости разработчиком
 
-## Запуск проекта
+---
 
-`npm run start` — запускает сервер  
-`npm run dev` — запускает сервер с hot-reload
+## Инструкция по установке и запуска проекта:
+</br>
+Клонировать репозиторий:
+
+```no-highlight
+git clone https://github.com/RaSabirov/express-mesto-gha.git
+```
+
+Перейти в директорию проекта:
+
+```no-highlight
+cd express-mesto-gha
+```
+
+Установить пакетный менеджер npm
+
+```no-highlight
+npm install
+```
+
+Установить MongoDB и запустить службу в терминале (MacOS):
+
+```no-highlight
+brew services start mongodb-community@5.0
+```
+Установить MongoDB и запустить службу в терминале (Windows):
+```no-highlight
+mongod
+```
+
+Запустить сервер в режиме hot-reload:
+
+```no-highlight
+npm run dev
+```
+
+Запустить сервер в обычном режиме:
+
+```no-highlight
+npm run start
+```
+
+
