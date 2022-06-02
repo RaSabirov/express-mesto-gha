@@ -84,7 +84,7 @@ const getUserMe = async (req, res, next) => {
     const userId = req.user._id;
     const user = await User.findById(userId);
     if (user) {
-      return res.send(user);
+      return res.status(200).send(user);
     }
     return next(new ErrorNotFound('Пользователь не найден'));
   } catch (err) {

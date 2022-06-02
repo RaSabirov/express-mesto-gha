@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-// const { errors } = require('celebrate');
+const { errors } = require('celebrate');
 const { routes } = require('./routes/routes');
 const errorHandler = require('./middlewares/errorHandler');
 const ErrorNotFound = require('./errors/ErrorNotFound');
@@ -17,11 +17,13 @@ app.use((req, res, next) => {
   next();
 });
 app.use(routes);
-app.use(errorHandler);
 
 app.use((req, res, next) => {
   next(new ErrorNotFound('Такого пути не существует'));
 });
+
+app.use(errors());
+app.use(errorHandler);
 
 async function main() {
   try {
