@@ -3,6 +3,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const { routes } = require('./routes/routes');
+const errorHandler = require('./middlewares/errorHandler');
+const ErrorNotFound = require('./errors/ErrorNotFound');
 
 const app = express();
 const { PORT = 3000 } = process.env;
@@ -11,22 +13,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use((req, res, next) => {
-  req.user = {
-    _id: '6283597354d120943f1f1f6c', // _id созданного пользователя
-  };
-
-  next();
-});
-app.use((req, res, next) => {
   // eslint-disable-next-line no-console
   console.log(req.method, req.path);
   next();
 });
-
 app.use(routes);
+app.use(errorHandler);
 
-app.use((req, res) => {
-  res.status(404).send({ message: 'Такого пути не существует' });
+app.use((req, res, next) => {
+  next(new ErrorNotFound('Такого пути не существует'));
 });
 
 async function main() {
