@@ -1,9 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const { errors } = require('celebrate');
+const helmet = require('helmet');
 const { routes } = require('./routes/routes');
 const errorHandler = require('./middlewares/errorHandler');
-const ErrorNotFound = require('./errors/ErrorNotFound');
 const { logger } = require('./middlewares/logger');
 
 const app = express();
@@ -13,10 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(routes);
-
-app.use((req, res, next) => {
-  next(new ErrorNotFound('Такого пути не существует'));
-});
+app.use(helmet());
 app.use(logger);
 app.use(errors()); // celebrate handler
 app.use(errorHandler);

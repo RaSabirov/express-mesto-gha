@@ -1,4 +1,4 @@
-const ErrorConfict = require('../errors/ErrorConfict');
+const ErrorForbitten = require('../errors/ErrorForbitten');
 const ErrorNotFound = require('../errors/ErrorNotFound');
 const ErrorValidation = require('../errors/ErrorValidation');
 const Card = require('../models/cardModules');
@@ -41,7 +41,7 @@ const deleteCard = async (req, res, next) => {
       const deleteCardById = await Card.findByIdAndRemove(req.params.cardId);
       return res.send(deleteCardById);
     }
-    return next(new ErrorConfict('Что-то пошло не так :('));
+    return next(new ErrorForbitten('Ограничение доступа к удалению карточки'));
   } catch (err) {
     if (err.name === 'CastError') {
       return next(new ErrorValidation('Передан некорректный ID'));

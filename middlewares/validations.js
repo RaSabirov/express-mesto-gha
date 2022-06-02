@@ -19,7 +19,7 @@ const register = celebrate({
       'string.notEmail': 'Email адрес не корректный',
     }),
     // валидация поля пароль
-    password: Joi.string().required().min(5).messages({
+    password: Joi.string().required().messages({
       'any.required': 'Пароль не указан',
     }),
     name: Joi.string().min(2).max(30).messages({
@@ -63,12 +63,21 @@ const validateCreateCard = celebrate({
   }),
 });
 
-const validateId = celebrate({
+const validateCardId = celebrate({
   params: Joi.object().keys({
-    // Требование чтобы строка содержала только буквы a-z, A-Z, и цифры 0-9
-    cardId: Joi.string().alphanum().length(24).message({
-      'string.length': 'Некорректное поле ID, требуемая длина должна равняться 24',
-    }),
+    cardId: Joi.string().length(24).hex().required()
+      .messages({
+        'string.length': 'Некорректное поле ID, требуемая длина должна равняться 24',
+      }),
+  }),
+});
+
+const validateUserId = celebrate({
+  params: Joi.object().keys({
+    userId: Joi.string().length(24).hex().required()
+      .messages({
+        'string.length': 'Некорректное поле ID, требуемая длина должна равняться 24',
+      }),
   }),
 });
 
@@ -77,5 +86,6 @@ module.exports = {
   validateProfile,
   validateAvatar,
   validateCreateCard,
-  validateId,
+  validateCardId,
+  validateUserId,
 };
