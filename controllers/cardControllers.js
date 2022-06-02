@@ -19,7 +19,6 @@ const createCard = async (req, res, next) => {
 
     const card = await Card.create(
       { name, link, owner },
-      { new: true, runValidators: true },
     );
     return res.status(201).send(card);
   } catch (err) {

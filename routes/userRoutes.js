@@ -11,8 +11,8 @@ const { validateProfile, validateAvatar, validateId } = require('../middlewares/
 const userRoutes = express.Router();
 
 userRoutes.get('/', getUsers);
-userRoutes.get('/:userId', validateId, getUserById);
 userRoutes.get('/me', getUserMe);
+userRoutes.get('/:userId', validateId, getUserById);
 userRoutes.patch('/me', validateProfile, updateProfile);
 userRoutes.patch('/me/avatar', validateAvatar, updateAvatar);
 

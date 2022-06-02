@@ -65,8 +65,7 @@ const getUsers = async (req, res, next) => {
 
 const getUserById = async (req, res, next) => {
   try {
-    const { userId } = req.params;
-    const user = await User.findById(userId);
+    const user = await User.findById(req.params.userId);
     if (user) {
       return res.send(user);
     }
@@ -81,8 +80,7 @@ const getUserById = async (req, res, next) => {
 
 const getUserMe = async (req, res, next) => {
   try {
-    const userId = req.user._id;
-    const user = await User.findById(userId);
+    const user = await User.findById(req.user._id);
     if (user) {
       return res.status(200).send(user);
     }
