@@ -1,5 +1,4 @@
 const { isEmail } = require('validator');
-
 const mongoose = require('mongoose');
 const { regEx } = require('../config');
 
@@ -16,7 +15,6 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
-    minlength: 2,
     select: false,
   },
   name: {
@@ -35,7 +33,7 @@ const userSchema = new mongoose.Schema({
   },
   avatar: {
     type: String,
-    required: true,
+    default: 'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png',
     validate: {
       validator: regEx,
       message: 'Передана некорректная ссылка',
