@@ -55,11 +55,12 @@ const validateAvatar = celebrate({
 
 const validateCreateCard = celebrate({
   [Segments.BODY]: Joi.object().keys({
-    name: Joi.string().min(2).max(30).messages({
-      'string.min': 'Минимальная длина поля 2 символа',
-      'string.max': 'Максимальная длина поля 30 символов',
-    }),
-    link: Joi.string().pattern(regEx),
+    name: Joi.string().required().min(2).max(30)
+      .messages({
+        'string.min': 'Минимальная длина поля 2 символа',
+        'string.max': 'Максимальная длина поля 30 символов',
+      }),
+    link: Joi.string().required().pattern(regEx),
   }),
 });
 
